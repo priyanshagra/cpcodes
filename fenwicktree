@@ -1,0 +1,15 @@
+int update(int ind, int val)
+{
+	for(int i = ind;i<=maxsize; i+= i & -i)
+		fen[i] += val;
+}
+
+// Function to get the prefix sum or suffix sum 
+int sum(int ind)
+{
+	int ans = 0; 
+	for(int i = ind; i > 0 ; i-= i& -i)
+		ans +=fen[i]; 
+
+	return ans; 
+}
