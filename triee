@@ -1,0 +1,10 @@
+class Trienode
+{
+public:
+  unordered_map<int,Trienode*>child
+  int count;
+  Trienode
+  {
+    count = 0;
+  }
+};
