@@ -3,7 +3,7 @@ class Trienode
 public:
   unordered_map<int,Trienode*>child;
   int count;
-  Trienode
+  Trienode()
   {
     count = 0;
   }
