@@ -1,0 +1,25 @@
+  int mod=1e9 + 7;
+    long long power(long long x, int y, int p){
+        long long res = 1;
+        x = x % p;
+        while (y > 0) {
+            if (y & 1)res = (res * x) % p;
+            y = y >> 1;
+            x = (x * x) % p;
+        }
+        return res;
+    }
+    long long mul(long long x,long long y, int p){
+        return x * 1LL * y % p;
+    }
+    long long divide(long long x,long long y, int p){
+        return mul(x , power(y, p - 2, p), p);
+    }
+    long long nCrModPFermat(long long n,int r, int p){
+        if (n < r)return 0;
+        if (r == 0)return 1;
+        if (n - r < r)return nCrModPFermat(n, n - r, p);
+        long long res = 1;
+        for (int i = r; i >= 1; i--)res = divide(mul(res, n - i + 1, p), i, p);
+        return res;
+    }
